@@ -1,24 +1,36 @@
 PODS:
   - Alamofire (4.9.1)
+  - DropdownMenu (1.0.0)
+  - DropDownStack (1.0.0)
+  - DropDownSw (0.1.4)
   - Kingfisher (7.3.2)
   - Wormholy (1.6.5)
 
 DEPENDENCIES:
   - Alamofire
+  - DropdownMenu
+  - DropDownStack
+  - DropDownSw
   - Kingfisher (~> 7.0)
   - Wormholy
 
 SPEC REPOS:
   trunk:
     - Alamofire
+    - DropdownMenu
+    - DropDownStack
+    - DropDownSw
     - Kingfisher
     - Wormholy
 
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  DropdownMenu: 5777e17ac6ddbc69b151719b83a838da81440786
+  DropDownStack: e58f559c549514b1e05119e6dce7f86cdbd0c33d
+  DropDownSw: a0973146979123252973e13f27a925dc74eb1e26
   Kingfisher: 0086ad83719761ba9b2cdaf6ef4d5b4878cbae23
   Wormholy: 3252bc3e55a1847ef9a0976c1377bd77bf3635fa
 
-PODFILE CHECKSUM: b2fa29a90fce007d2fec0f47c2ccd848d3e17446
+PODFILE CHECKSUM: ebaa6ccb5174fd8b354a399ba19474952ea51bee
 
 COCOAPODS: 1.11.3

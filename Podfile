@@ -7,6 +7,9 @@ target 'tableDataPresent' do
 
   # Pods for tableDataPresent
 pod 'Alamofire'
+pod 'DropdownMenu'
+pod 'DropDownSw'
+pod 'DropDownStack'
 pod 'Wormholy', :configurations => ['Debug']
 pod 'Kingfisher', '~> 7.0'
   target 'tableDataPresentTests' do

@@ -6,17 +6,48 @@
 //
 
 import UIKit
-
+import DropDownStack
 class ViewController: UIViewController {
     
+   
+    func dataReload(msg : String){
+        
+        if msg == "Apple"{
+            test = Apple
+            print(Apple)
+            tableView?.reloadData()
+        }
+        if msg == "Samsung"{
+            test = Samsung
+            self.tableView.reloadData()
+        }
+        if msg == "Microsoft" {
+            test = Microsoft
+            self.tableView.reloadData()
+        }    }
+    // Prepare Segue to pass data to next view
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showDetail"{
+            let destinationVC = segue.destination as! newViewController
+            destinationVC.recievingData = passingData
+        }
+    }
+    @IBAction func dropMenuList(_ sender: Any) {
+    }
     // Table view outlet connected
     @IBOutlet weak var tableView: UITableView!
     // Variables declared
     var index = 0
     var passingData : Product!
     var user = [Product]()
+    var Apple = [Product]()
+    var Apple1 = [Product]()
+    var test = [Product]()
     var expandedIndexSet : IndexSet = []
     var message = ""
+    var msg = ""
+    var Samsung = [Product]()
+    var Microsoft = [Product]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,23 +68,34 @@ class ViewController: UIViewController {
                 guard let self = self else {return}
                 guard let _user = user else {return}
                 self.user = _user
+                for i in self.user.indices{
+                    if self.user[i].brand == "Apple"{
+                        self.Apple.append(user![i])
+                    }
+                    else if self.user[i].brand == "Samsung"{
+                        self.Samsung.append(user![i])
+                    }
+                    else if self.user[i].brand == "Microsoft"{
+                        self.Samsung.append(user![i])
+                    }
+                    
+                }
+                print("hello")
+                self.test = self.user
                 self.tableView.reloadData()
             }
             
+            
+            
         }
-        
     }
-    // Prepare Segue to pass data to next view
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destinationVC = segue.destination as! newViewController
-        destinationVC.recievingData = passingData
-    }
-   
+    
+    
 }
 
 extension ViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return user.count
+        return test.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // Cell initialized
@@ -61,7 +103,20 @@ extension ViewController: UITableViewDelegate{
             print("failed to get cell")
             return UITableViewCell()
         }
-        let users = user[indexPath.row]
+        for i in self.user.indices{
+            if self.user[i].brand == "Apple"{
+                self.Apple.append(user[i])
+            }
+            else if self.user[i].brand == "Samsung"{
+                self.Samsung.append(user[i])
+            }
+            else if self.user[i].brand == "Microsoft"{
+                self.Samsung.append(user[i])
+            }
+            
+        }
+        Apple1 = Apple
+        let users = test[indexPath.row]
         // Functions called
         cell.dataPass(users: users) // datapass() is used to set add the values into the tableview cell
         cell.updateIcon(users: users) // updateIcon() is used to set the icon Image for each tableview cell
