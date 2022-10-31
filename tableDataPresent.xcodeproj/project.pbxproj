@@ -28,7 +28,6 @@
 		1F8E5DD228EC69D800C05E47 /* tableDataPresentUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8E5DD128EC69D800C05E47 /* tableDataPresentUITestsLaunchTests.swift */; };
 		1F8E5DE128EC6AFD00C05E47 /* DataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8E5DDF28EC6AFD00C05E47 /* DataTableViewCell.swift */; };
 		1F8E5DE228EC6AFD00C05E47 /* DataTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F8E5DE028EC6AFD00C05E47 /* DataTableViewCell.xib */; };
-		1F8E5DE928EC79DF00C05E47 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = 1F8E5DE828EC79DF00C05E47 /* data.json */; };
 		1FF5101C28FE70DB002E878F /* Rootclass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF5101B28FE70DB002E878F /* Rootclass.swift */; };
 		52530698F83DE93E27D6C4CD /* Pods_tableDataPresent_tableDataPresentUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE433A817D8BB387210B2364 /* Pods_tableDataPresent_tableDataPresentUITests.framework */; };
 		6A0885D81B7D9F2214A28B38 /* Pods_tableDataPresent.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 413DAB1098005A5CE4ACFDA9 /* Pods_tableDataPresent.framework */; };
@@ -77,7 +76,6 @@
 		1F8E5DD128EC69D800C05E47 /* tableDataPresentUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tableDataPresentUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		1F8E5DDF28EC6AFD00C05E47 /* DataTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTableViewCell.swift; sourceTree = "<group>"; };
 		1F8E5DE028EC6AFD00C05E47 /* DataTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = DataTableViewCell.xib; path = tableDataPresent/cells/DataTableViewCell.xib; sourceTree = SOURCE_ROOT; };
-		1F8E5DE828EC79DF00C05E47 /* data.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 		1FF5101B28FE70DB002E878F /* Rootclass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rootclass.swift; sourceTree = "<group>"; };
 		2E218F880E232082D0849740 /* Pods-tableDataPresentTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tableDataPresentTests.release.xcconfig"; path = "Target Support Files/Pods-tableDataPresentTests/Pods-tableDataPresentTests.release.xcconfig"; sourceTree = "<group>"; };
 		413DAB1098005A5CE4ACFDA9 /* Pods_tableDataPresent.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tableDataPresent.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -120,7 +118,6 @@
 		1F8E5DA228EC69D600C05E47 = {
 			isa = PBXGroup;
 			children = (
-				1F8E5DE828EC79DF00C05E47 /* data.json */,
 				1F8E5DAD28EC69D600C05E47 /* tableDataPresent */,
 				1F8E5DC428EC69D800C05E47 /* tableDataPresentTests */,
 				1F8E5DCE28EC69D800C05E47 /* tableDataPresentUITests */,
@@ -342,7 +339,6 @@
 				1F8E5DBB28EC69D800C05E47 /* LaunchScreen.storyboard in Resources */,
 				1F8E5DB828EC69D800C05E47 /* Assets.xcassets in Resources */,
 				1F8E5DB628EC69D600C05E47 /* Main.storyboard in Resources */,
-				1F8E5DE928EC79DF00C05E47 /* data.json in Resources */,
 				1F8E5DE228EC6AFD00C05E47 /* DataTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
