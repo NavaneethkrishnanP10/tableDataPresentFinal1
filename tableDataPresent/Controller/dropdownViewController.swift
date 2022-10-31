@@ -8,6 +8,7 @@
 import UIKit
 
 class dropdownViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 3
     }
@@ -17,17 +18,22 @@ class dropdownViewController: UIViewController, UITableViewDelegate, UITableView
         cell.textLabel?.text = "\(list[indexPath.row])"
         return cell
     }
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {   
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "vc") as! ViewController
-        vc.dataReload(msg: list[indexPath.row])
+        print(self.Apple)
+        vc.dataReload(msg: self.list[indexPath.row], data: self.Apple)
         self.navigationController?.pushViewController(vc, animated: true)
         
         self.dismiss(animated: true)
     }
     var list = ["Apple", "Samsung","Microsoft"]
+    var user = [Product]()
+    var Apple = [Product]()
+    var Samsung = [Product]()
+    var Microsoft = [Product]()
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         dropMenu.delegate = self
         dropMenu.dataSource = self
         // Do any additional setup after loading the view.

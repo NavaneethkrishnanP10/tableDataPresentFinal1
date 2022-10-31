@@ -26,18 +26,41 @@ class ViewController: UIViewController {
         
     }
     func dataReload(msg : String){
-        if msg == "Apple"{
-            test = Apple1
-            tableView?.reloadData()
+        let service = APIservice(baseURL: "https://dummyjson.com/products")
+        service.getResponse()
+        // Completion handler implemented
+        service.completionHandler{ [weak self] (user, status, message) in
+            if status{
+                guard let self = self else {return}
+                guard let _user = user else {return}
+                self.user = _user
+                for i in self.user.indices{
+                    if self.user[i].brand == "Apple"{
+                        self.Apple.append(user![i])
+                    }
+                    else if self.user[i].brand == "Samsung"{
+                        self.Samsung.append(user![i])
+                    }
+                    else if self.user[i].brand == "Microsoft"{
+                        self.Microsoft.append(user![i])
+                    }
+                    
+                }
+            }
+            if msg == "Apple"{
+                test = Apple
+                tableView?.reloadData()
+            }
+            if msg == "Samsung"{
+                test = Samsung
+                self.tableView.reloadData()
+            }
+            if msg == "Microsoft" {
+                test = Microsoft
+                self.tableView.reloadData()
+            }
         }
-        if msg == "Samsung"{
-            test = Samsung
-            self.tableView.reloadData()
-        }
-        if msg == "Microsoft" {
-            test = Microsoft
-            self.tableView.reloadData()
-        }    }
+           }
     // Prepare Segue to pass data to next view
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetail"{
@@ -86,6 +109,8 @@ class ViewController: UIViewController {
                 let Apple1 = self.Apple
                 self.saveData(data: self.Apple)
                
+                let vc = self.storyboard?.instantiateViewController(withIdentifier: "dropDown") as! dropdownViewController
+                vc.user = self.user
                 self.test = self.user
                 self.tableView.reloadData()
             }
@@ -109,19 +134,6 @@ extension ViewController: UITableViewDelegate{
             print("failed to get cell")
             return UITableViewCell()
         }
-        for i in self.user.indices{
-            if self.user[i].brand == "Apple"{
-                self.Apple.append(user[i])
-            }
-            else if self.user[i].brand == "Samsung"{
-                self.Samsung.append(user[i])
-            }
-            else if self.user[i].brand == "Microsoft"{
-                self.Microsoft.append(user[i])
-            }
-            
-        }
-        
         let users = test[indexPath.row]
         // Functions called
         cell.dataPass(users: users) // datapass() is used to set add the values into the tableview cell
