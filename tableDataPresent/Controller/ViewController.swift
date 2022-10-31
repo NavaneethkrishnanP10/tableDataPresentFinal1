@@ -8,13 +8,26 @@
 import UIKit
 import DropDownStack
 class ViewController: UIViewController {
-    
-   
-    func dataReload(msg : String){
+    let userDefaults = UserDefaults.standard
+    var index = 0
+    var passingData : Product!
+    var user = [Product]()
+    var Apple = [Product]()
+    var Apple1 = [Product]()
+    var test = [Product]()
+    var expandedIndexSet : IndexSet = []
+    var message = ""
+    var msg = ""
+    var Samsung = [Product]()
+    var Microsoft = [Product]()
+    func saveData(data : [Product]){
+        test = data
+        tableView?.reloadData()
         
+    }
+    func dataReload(msg : String){
         if msg == "Apple"{
-            test = Apple
-            print(Apple)
+            test = Apple1
             tableView?.reloadData()
         }
         if msg == "Samsung"{
@@ -37,17 +50,7 @@ class ViewController: UIViewController {
     // Table view outlet connected
     @IBOutlet weak var tableView: UITableView!
     // Variables declared
-    var index = 0
-    var passingData : Product!
-    var user = [Product]()
-    var Apple = [Product]()
-    var Apple1 = [Product]()
-    var test = [Product]()
-    var expandedIndexSet : IndexSet = []
-    var message = ""
-    var msg = ""
-    var Samsung = [Product]()
-    var Microsoft = [Product]()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,11 +79,13 @@ class ViewController: UIViewController {
                         self.Samsung.append(user![i])
                     }
                     else if self.user[i].brand == "Microsoft"{
-                        self.Samsung.append(user![i])
+                        self.Microsoft.append(user![i])
                     }
                     
                 }
-                print("hello")
+                let Apple1 = self.Apple
+                self.saveData(data: self.Apple)
+               
                 self.test = self.user
                 self.tableView.reloadData()
             }
@@ -89,6 +94,7 @@ class ViewController: UIViewController {
             
         }
     }
+    
     
     
 }
@@ -111,11 +117,11 @@ extension ViewController: UITableViewDelegate{
                 self.Samsung.append(user[i])
             }
             else if self.user[i].brand == "Microsoft"{
-                self.Samsung.append(user[i])
+                self.Microsoft.append(user[i])
             }
             
         }
-        Apple1 = Apple
+        
         let users = test[indexPath.row]
         // Functions called
         cell.dataPass(users: users) // datapass() is used to set add the values into the tableview cell

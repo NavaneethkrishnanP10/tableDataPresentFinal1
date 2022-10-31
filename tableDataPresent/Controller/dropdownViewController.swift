@@ -17,7 +17,7 @@ class dropdownViewController: UIViewController, UITableViewDelegate, UITableView
         cell.textLabel?.text = "\(list[indexPath.row])"
         return cell
     }
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {   
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "vc") as! ViewController
         vc.dataReload(msg: list[indexPath.row])
         self.navigationController?.pushViewController(vc, animated: true)
