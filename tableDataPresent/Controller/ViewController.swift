@@ -6,14 +6,14 @@
 //
 
 import UIKit
-import DropDownStack
+import iOSDropDown
 class ViewController: UIViewController {
     let userDefaults = UserDefaults.standard
     var index = 0
     var passingData : Product!
     var user = [Product]()
     var Apple = [Product]()
-    var Apple1 = [Product]()
+    var OPPO = [Product]()
     var test = [Product]()
     var expandedIndexSet : IndexSet = []
     var message = ""
@@ -22,10 +22,25 @@ class ViewController: UIViewController {
     var Microsoft = [Product]()
     func saveData(data : [Product]){
         test = data
-        tableView?.reloadData()
-        
+        //print(test)
     }
-    func dataReload(msg : String){
+    // Prepare Segue to pass data to next view
+  
+    @IBOutlet weak var productTitle: UILabel!
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showDetail"{
+            let destinationVC = segue.destination as! newViewController
+            destinationVC.recievingData = passingData
+        }
+    }
+    
+    
+    @IBOutlet weak var brandName: DropDown!
+    
+    @IBAction func dropMenuList(_ sender: Any) {
+    }
+    // Table view outlet connected
+    @IBAction func filter(_ sender: Any) {
         let service = APIservice(baseURL: "https://dummyjson.com/products")
         service.getResponse()
         // Completion handler implemented
@@ -34,48 +49,41 @@ class ViewController: UIViewController {
                 guard let self = self else {return}
                 guard let _user = user else {return}
                 self.user = _user
-                for i in self.user.indices{
-                    if self.user[i].brand == "Apple"{
-                        self.Apple.append(user![i])
-                    }
-                    else if self.user[i].brand == "Samsung"{
-                        self.Samsung.append(user![i])
-                    }
-                    else if self.user[i].brand == "Microsoft"{
-                        self.Microsoft.append(user![i])
-                    }
-                    
+                self.test = self.user
+                if self.brandName.text == "Apple"{
+                    self.productTitle.text = "Apple"
+                    self.Apple = self.user.filter({$0.brand == "Apple" || $0.brand == "APPle"})
+                    self.saveData(data: self.Apple)
                 }
-            }
-            if msg == "Apple"{
-                test = Apple
-                tableView?.reloadData()
-            }
-            if msg == "Samsung"{
-                test = Samsung
-                self.tableView.reloadData()
-            }
-            if msg == "Microsoft" {
-                test = Microsoft
+                else if self.brandName.text == "Samsung"{
+                    self.productTitle.text = "Samsung"
+                    self.Samsung = self.user.filter({$0.brand == "Samsung"})
+                    self.saveData(data: self.Samsung)
+                }
+                else if self.brandName.text == "OPPO"{
+                    self.productTitle.text = "OPPO"
+                    self.OPPO = self.user.filter({$0.brand == "OPPO"})
+                    self.saveData(data: self.OPPO)
+                }
+                else{
+                    self.productTitle.text = "Products"
+                    let dialogMessage = UIAlertController(title: "No Results", message: "There were no products found with the given name", preferredStyle: .alert)
+                    let ok = UIAlertAction(title: "OK", style: .default )
+
+                     dialogMessage.addAction(ok)
+                    self.present(dialogMessage, animated: true, completion: nil)
+
+                }
                 self.tableView.reloadData()
             }
         }
-           }
-    // Prepare Segue to pass data to next view
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showDetail"{
-            let destinationVC = segue.destination as! newViewController
-            destinationVC.recievingData = passingData
-        }
     }
-    @IBAction func dropMenuList(_ sender: Any) {
-    }
-    // Table view outlet connected
     @IBOutlet weak var tableView: UITableView!
     // Variables declared
     
     
     override func viewDidLoad() {
+        brandName.optionArray = ["Apple", "Samsung", "OPPO"]
         super.viewDidLoad()
         // Xib cell registered
         tableView.register(UINib.init(nibName: "DataTableViewCell", bundle: nil), forCellReuseIdentifier: "DataTableViewCell")
@@ -94,23 +102,6 @@ class ViewController: UIViewController {
                 guard let self = self else {return}
                 guard let _user = user else {return}
                 self.user = _user
-                for i in self.user.indices{
-                    if self.user[i].brand == "Apple"{
-                        self.Apple.append(user![i])
-                    }
-                    else if self.user[i].brand == "Samsung"{
-                        self.Samsung.append(user![i])
-                    }
-                    else if self.user[i].brand == "Microsoft"{
-                        self.Microsoft.append(user![i])
-                    }
-                    
-                }
-                let Apple1 = self.Apple
-                self.saveData(data: self.Apple)
-               
-                let vc = self.storyboard?.instantiateViewController(withIdentifier: "dropDown") as! dropdownViewController
-                vc.user = self.user
                 self.test = self.user
                 self.tableView.reloadData()
             }

@@ -12,7 +12,6 @@
 		1F09FBB328F6ED0600C0C7D9 /* editPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F09FBB228F6ED0600C0C7D9 /* editPopupViewController.swift */; };
 		1F175E7D28EED18800B536A8 /* APIservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F175E7C28EED18800B536A8 /* APIservice.swift */; };
 		1F175E8028EED6C300B536A8 /* responseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F175E7F28EED6C300B536A8 /* responseModel.swift */; };
-		1F2CD222290BBDA9008BFAD9 /* dropdownViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2CD221290BBDA9008BFAD9 /* dropdownViewController.swift */; };
 		1F6F73AA29000D27007EF6CF /* pageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6F73A929000D27007EF6CF /* pageController.swift */; };
 		1F79443428FEB9CA00D44210 /* cellCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F79443328FEB9CA00D44210 /* cellCollectionView.swift */; };
 		1F79443628FEBD3200D44210 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F79443528FEBD3200D44210 /* CollectionViewController.swift */; };
@@ -56,7 +55,6 @@
 		1F09FBB228F6ED0600C0C7D9 /* editPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = editPopupViewController.swift; sourceTree = "<group>"; };
 		1F175E7C28EED18800B536A8 /* APIservice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIservice.swift; sourceTree = "<group>"; };
 		1F175E7F28EED6C300B536A8 /* responseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = responseModel.swift; sourceTree = "<group>"; };
-		1F2CD221290BBDA9008BFAD9 /* dropdownViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dropdownViewController.swift; sourceTree = "<group>"; };
 		1F6F73A929000D27007EF6CF /* pageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pageController.swift; sourceTree = "<group>"; };
 		1F79443328FEB9CA00D44210 /* cellCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cellCollectionView.swift; sourceTree = "<group>"; };
 		1F79443528FEBD3200D44210 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
@@ -199,7 +197,6 @@
 				1F09FBB028F6A5C500C0C7D9 /* popupViewController.swift */,
 				1F09FBB228F6ED0600C0C7D9 /* editPopupViewController.swift */,
 				1F79443528FEBD3200D44210 /* CollectionViewController.swift */,
-				1F2CD221290BBDA9008BFAD9 /* dropdownViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -478,7 +475,6 @@
 				1F8E5DAF28EC69D600C05E47 /* AppDelegate.swift in Sources */,
 				1F175E8028EED6C300B536A8 /* responseModel.swift in Sources */,
 				1F8E5DB128EC69D600C05E47 /* SceneDelegate.swift in Sources */,
-				1F2CD222290BBDA9008BFAD9 /* dropdownViewController.swift in Sources */,
 				1F8E5DE128EC6AFD00C05E47 /* DataTableViewCell.swift in Sources */,
 				1F79443428FEB9CA00D44210 /* cellCollectionView.swift in Sources */,
 			);
